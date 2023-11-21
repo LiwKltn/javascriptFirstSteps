@@ -1,0 +1,28 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+
+  button, input, label {
+    margin-bottom: 10px;
+  }
+
+  #miFormulario {
+    max-width: 300px;
+    margin-bottom: 20px;
+  }
+
+  #miTabla {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  #miTabla th, #miTabla td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+
+  #miTabla th {
+    background-color: #f2f2f2;
+  }

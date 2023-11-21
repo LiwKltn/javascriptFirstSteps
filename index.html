@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Manipulación del DOM</title>
+</head>
+
+<body>
+
+    <div class="button">
+        <button id="mensajeBtn">Mostrar Mensaje</button>
+    </div>
+
+
+    <p id="contenido">Contenido original</p>
+
+
+    <ul id="listaNombres"></ul>
+
+
+    <p id="numerosCount"></p>
+
+
+    <form id="miFormulario">
+
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" name="edad" required>
+
+
+        <button type="submit">Enviar</button>
+    </form>
+
+
+    <table id="miTabla">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Estado</th>
+                <th>Especie</th>
+                <th>Tipo</th>
+                <th>Género</th>
+            </tr>
+        </thead>
+        <tbody id="cuerpoTabla">
+
+        </tbody>
+    </table>
+
+    <script>
+
+
+
+        document.getElementById('mensajeBtn').addEventListener('click', function () {
+            alert('Holaaa, Como va todo mis panas?');
+        });
+
+
+        document.getElementById('contenido').innerHTML = 'Nuevo contenido';
+
+
+        let nombresArray = ['Oliwia', 'María', 'Marta', 'Ana', 'Manu', 'Angela', 'Yami', 'Ale', 'Loli', 'Desi'];
+
+
+        let listaNombres = document.getElementById('listaNombres');
+        nombresArray.forEach(function (nombre) {
+            let li = document.createElement('li');
+            li.textContent = nombre;
+            listaNombres.appendChild(li);
+        });
+
+
+        let numerosArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+
+        document.getElementById('numerosCount').textContent = 'Número de elementos en el array de números: ' + numerosArray.length;
+
+
+        let formulario = document.getElementById('miFormulario');
+
+
+        let labelNombre = document.createElement('label');
+        labelNombre.textContent = 'Nombre:';
+        
+
+        let miTabla = document.getElementById('miTabla');
+        let cuerpoTabla = document.getElementById('cuerpoTabla');
+
+
+        let objetosArray = [
+            { id: 1, name: 'Oliwia', status: 'Enferma', species: 'Gato', type: 'Developer', gender: 'Femenino' },
+            { id: 2, name: 'Maria', status: 'Estable', species: 'Cuervo', type: 'Developer', gender: 'Femenino'},
+            { id: 3, name: 'Marta', status: 'Fuerte', species: 'Perro', type: 'Developer', gender: 'Femenino'},
+            { id: 4, name: 'Ana', status: 'Indomable', species: 'Loba', type: 'Baterista/Developer', gender: 'Femenino'},
+            { id: 5, name: 'Manu', status: 'Poderosa', species: 'Cacatua', type: 'Formdora/Developer', gender: 'Femenino'},
+
+        ];
+
+
+        objetosArray.forEach(function (objeto) {
+            let tr = document.createElement('tr');
+            for (let key in objeto) {
+                let td = document.createElement('td');
+                td.textContent = objeto[key];
+                tr.appendChild(td);
+            }
+            cuerpoTabla.appendChild(tr);
+        });
+
+    </script>
+
+</body>
+
+</html>
